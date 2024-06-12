@@ -1,28 +1,29 @@
+'use client'
+
 import { twMerge } from "tailwind-merge";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { motion } from "framer-motion";
 
-export default function Home() {
+export default function WithFramerMotion() {
+    
   return (
     <main className="bg-[#06141D] p-8 text-zinc-50">
       <div className="w-full">
-        <div className="max-w-4xl mx-auto grid grid-cols-12 gap-5">
+        <div className="max-w-4xl mx-auto grid grid-cols-12 gap-4">
           <HeaderBlock />
           <SocialBlock />
-          <Block />
+          <AboutBlock />
           <Block />
           <Block />
           <Block />
         </div>
 
-        <div className="text-center mt-24 group transition-all"> GO TO SEE
-          <a
-            href="/with_framer_motion"
-            className="flex justify-center items-center gap-3 hover:underline"
-          >
+        <div className="text-center my-10 hover:underline group transition-all">
+          <a href="/" className="flex justify-center items-center gap-3">
             With appling Framer_Motion{" "}
             <FaRegArrowAltCircleRight
               className="group-hover:transform group-hover:translate-x-1 group-hover:transition-all group-hover:text-blue-500"
@@ -37,7 +38,7 @@ export default function Home() {
 
 const Block = ({ className, ...rest }) => {
   return (
-    <div
+    <motion.div
       className={twMerge(
         "col-span-4 rounded-lg border border-zinc-700 bg-zinc-800 p-6",
         className
@@ -55,7 +56,7 @@ const HeaderBlock = () => {
         alt="avatar"
         className="mb-4 size-12 rounded-full"
       />
-      <h1 className="mb-4 text-4xl font-medium leading-tight">
+      <h1 className="mb-10 text-4xl font-medium leading-tight">
         Hello, I'm Farijul.{" "}
         <span className="text-zinc-400">
           I build cool websites like this one
@@ -75,7 +76,13 @@ const HeaderBlock = () => {
 const SocialBlock = () => {
   return (
     <>
-      <Block className="col-span-6 bg-blue-400 md:col-span-3 hover:-rotate-3 hover:scale-105 transition-all">
+      <Block
+        whileHover={{
+          rotate: "2.5deg",
+          scale: "1.1",
+        }}
+        className="col-span-6 bg-blue-400 md:col-span-3 "
+      >
         <a
           href="#"
           className="grid h-full place-content-center text-3xl text-white"
@@ -84,7 +91,10 @@ const SocialBlock = () => {
         </a>
       </Block>
 
-      <Block className="col-span-6 bg-green-500 md:col-span-3 hover:rotate-3 hover:scale-105 transition-all">
+      <Block whileHover={{
+          rotate: "-2.5deg",
+          scale: "1.1",
+        }} className="col-span-6 bg-green-500 md:col-span-3 ">
         <a
           href="#"
           className="grid h-full place-content-center text-3xl text-white"
@@ -93,7 +103,10 @@ const SocialBlock = () => {
         </a>
       </Block>
 
-      <Block className="col-span-6 bg-white  md:col-span-3 hover:-rotate-3 hover:scale-105 transition-all">
+      <Block whileHover={{
+          rotate: "2.5deg",
+          scale: "1.1",
+        }} className="col-span-6 bg-white  md:col-span-3 ">
         <a
           href="#"
           className="grid h-full place-content-center text-3xl text-white"
@@ -102,7 +115,10 @@ const SocialBlock = () => {
         </a>
       </Block>
 
-      <Block className="col-span-6 bg-blue-600 md:col-span-3 hover:rotate-3 hover:scale-105 transition-all">
+      <Block whileHover={{
+          rotate: "-2.5deg",
+          scale: "1.1",
+        }} className="col-span-6 bg-blue-600 md:col-span-3 ">
         <a
           href="#"
           className="grid h-full place-content-center text-3xl text-white"
@@ -113,3 +129,14 @@ const SocialBlock = () => {
     </>
   );
 };
+
+const AboutBlock = () => {
+    return (
+        <Block className="col-span-12 text-3xl leading-snug">
+        <p>
+            My passion is building cool stuff.
+            <span className="text-zinc-400">I build primarily with React.js/Next.js, Tailwind CSS, and Framer Motion. I have done so many projects using this stack.</span>
+        </p>
+    </Block>
+    )
+}
