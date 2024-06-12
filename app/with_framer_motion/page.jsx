@@ -24,7 +24,7 @@ export default function WithFramerMotion() {
 
         <div className="text-center my-10 hover:underline group transition-all">
           <a href="/" className="flex justify-center items-center gap-3">
-            With appling Framer_Motion{" "}
+            Without appling <span className="text-red-300">Framer_Motion</span>
             <FaRegArrowAltCircleRight
               className="group-hover:transform group-hover:translate-x-1 group-hover:transition-all group-hover:text-blue-500"
               size={13}
@@ -134,8 +134,8 @@ const AboutBlock = () => {
     return (
         <Block className="col-span-12 text-3xl leading-snug">
         <p>
-            My passion is building cool stuff.
-            <span className="text-zinc-400">I build primarily with React.js/Next.js, Tailwind CSS, and Framer Motion. I have done so many projects using this stack.</span>
+            My passion is building cool stuff. 
+            <span className="text-zinc-400"> I build primarily with React.js/Next.js, Tailwind CSS, and Framer Motion. I have done so many projects using this stack.</span>
         </p>
     </Block>
     )

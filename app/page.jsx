@@ -12,18 +12,21 @@ export default function Home() {
         <div className="max-w-4xl mx-auto grid grid-cols-12 gap-5">
           <HeaderBlock />
           <SocialBlock />
-          <Block />
+          <AboutBlock />
           <Block />
           <Block />
           <Block />
         </div>
 
-        <div className="text-center mt-24 group transition-all"> GO TO SEE
+        <div className="text-center mt-24 group transition-all"> 
+          <h2 className="text-2xl font-semibold uppercase mb-5 text-green-300">This is done without using framer motion</h2>
+
+          <p>Go to here to see</p>
           <a
             href="/with_framer_motion"
-            className="flex justify-center items-center gap-3 hover:underline"
+            className="flex justify-center items-center gap-1.5 hover:underline"
           >
-            With appling Framer_Motion{" "}
+            With appling <span className="text-red-300">Framer_Motion</span>
             <FaRegArrowAltCircleRight
               className="group-hover:transform group-hover:translate-x-1 group-hover:transition-all group-hover:text-blue-500"
               size={13}
@@ -113,3 +116,15 @@ const SocialBlock = () => {
     </>
   );
 };
+
+
+const AboutBlock = () => {
+  return (
+      <Block className="col-span-12 text-3xl leading-snug">
+      <p>
+          My passion is building cool stuff. 
+          <span className="text-zinc-400"> I build primarily with React.js/Next.js, Tailwind CSS, and Framer Motion. I have done so many projects using this stack.</span>
+      </p>
+  </Block>
+  )
+}
